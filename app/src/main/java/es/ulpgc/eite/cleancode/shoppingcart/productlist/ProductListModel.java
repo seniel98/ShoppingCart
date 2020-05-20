@@ -15,8 +15,8 @@ public class ProductListModel implements ProductListContract.Model {
     private OrderData data;
     private List<ProductData> datasource;
 
-    public ProductListModel() {
-        datasource = ProductStore.instance().datasource;
+    public ProductListModel(List<ProductData> datasource) {
+        this.datasource = ProductStore.instance().datasource;
     }
 
 
@@ -48,7 +48,6 @@ public class ProductListModel implements ProductListContract.Model {
         Log.e(TAG, "onDataFromNextScreen()");
 
 
-        //TODO: falta implementacion
     }
 
     @Override

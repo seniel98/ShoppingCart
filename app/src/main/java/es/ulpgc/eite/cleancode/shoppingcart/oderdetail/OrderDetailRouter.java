@@ -5,19 +5,18 @@ import es.ulpgc.eite.cleancode.shoppingcart.app.OrderListToDetailState;
 
 public class OrderDetailRouter implements OrderDetailContract.Router {
 
-  public static String TAG = OrderDetailRouter.class.getSimpleName();
+    public static String TAG = OrderDetailRouter.class.getSimpleName();
 
-  private AppMediator mediator;
+    private AppMediator mediator;
 
-  public OrderDetailRouter(AppMediator mediator) {
-    this.mediator = mediator;
-  }
+    public OrderDetailRouter(AppMediator mediator) {
+        this.mediator = mediator;
+    }
 
 
-  @Override
-  public OrderListToDetailState getStateFromPreviousScreen() {
-    //TODO: falta implementacion
-    return null;
-  }
+    @Override
+    public OrderListToDetailState getStateFromPreviousScreen() {
+        return mediator.getOrderListToDetailState();
+    }
 
 }

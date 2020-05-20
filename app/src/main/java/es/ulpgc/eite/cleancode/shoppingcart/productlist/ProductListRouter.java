@@ -18,9 +18,7 @@ public class ProductListRouter implements ProductListContract.Router {
 
     @Override
     public ProductDetailToListState getStateFromNextScreen() {
-        //TODO: falta implementacion
-
-        return null;
+        return mediator.getProductDetailToListState();
     }
 
     @Override
@@ -30,14 +28,12 @@ public class ProductListRouter implements ProductListContract.Router {
 
     @Override
     public void passStateToPreviousScreen(ProductToOrderListState state) {
-        //TODO: falta implementacion
+        mediator.setPreviousProductToOrderListState(state);
     }
 
     @Override
     public OrderToProductListState getStateFromPreviousScreen() {
-        //TODO: falta implementacion
-
-        return null;
+        return mediator.getOrderToProductListState();
     }
 
 }

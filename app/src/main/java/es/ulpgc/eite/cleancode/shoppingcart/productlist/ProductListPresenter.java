@@ -4,7 +4,10 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.shoppingcart.app.OrderToProductListState;
+import es.ulpgc.eite.cleancode.shoppingcart.app.ProductDetailToListState;
 import es.ulpgc.eite.cleancode.shoppingcart.app.ProductListToDetailState;
+import es.ulpgc.eite.cleancode.shoppingcart.app.ProductToOrderListState;
 import es.ulpgc.eite.cleancode.shoppingcart.data.ProductData;
 
 public class ProductListPresenter implements ProductListContract.Presenter {
@@ -28,7 +31,10 @@ public class ProductListPresenter implements ProductListContract.Presenter {
             state = new ProductListState();
         }
 
-
+        OrderToProductListState orderToProductListState = router.getStateFromPreviousScreen();
+        if (orderToProductListState != null) {
+            state.data = orderToProductListState.orderData;
+        }
 
 
     }
@@ -50,13 +56,23 @@ public class ProductListPresenter implements ProductListContract.Presenter {
         // update the view
         view.get().onDataUpdated(state);
 
+        ProductDetailToListState savedState = router.getStateFromNextScreen();
+        if (savedState != null) {
+            model.onDataFromNextScreen(savedState.productData);
+            state.data.content.add(savedState.productData);
+            //Log.e("OnStart()", "tate.data.content.add(savedState.productData)" + state.data.content.toString());
+        }
+
     }
 
     @Override
     public void onBackPressed() {
         Log.e(TAG, "onBackPressed()");
 
-        //TODO: falta implementacion
+        ProductToOrderListState productToOrderListState = new ProductToOrderListState();
+
+        productToOrderListState.orderData = state.data;
+        router.passStateToPreviousScreen(productToOrderListState);
     }
 
     @Override
@@ -68,6 +84,7 @@ public class ProductListPresenter implements ProductListContract.Presenter {
     @Override
     public void onDestroy() {
         Log.e(TAG, "onDestroy()");
+        state.datasource = model.getStoredDatasource();
     }
 
     @Override

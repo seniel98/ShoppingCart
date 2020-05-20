@@ -15,6 +15,8 @@ public class AppMediator {
     private OrderDetailState orderDetailState;
 
     private OrderListToDetailState orderListToDetailState;
+
+
     private OrderToProductListState orderToProductListState;
     private ProductDetailToListState productDetailToListState;
     private ProductListToDetailState productListToDetailState;
@@ -65,6 +67,48 @@ public class AppMediator {
     }
 
     public ProductListToDetailState getProductListToDetailState() {
-        return productListToDetailState;
+        ProductListToDetailState state = productListToDetailState;
+        productListToDetailState = null;
+        return state;
+    }
+
+    public void setPreviousProductDetailToListState(ProductDetailToListState state) {
+        productDetailToListState = state;
+    }
+
+    public ProductDetailToListState getProductDetailToListState() {
+        ProductDetailToListState state = productDetailToListState;
+        productDetailToListState = null;
+        return state;
+    }
+
+    public void setPreviousProductToOrderListState(ProductToOrderListState state) {
+        productToOrderListState = state;
+    }
+
+    public ProductToOrderListState getProductToOrderListState() {
+        ProductToOrderListState state = productToOrderListState;
+        productToOrderListState = null;
+        return state;
+    }
+
+    public void setOrderListToDetailState(OrderListToDetailState state) {
+        orderListToDetailState = state;
+    }
+
+    public OrderListToDetailState getOrderListToDetailState() {
+        OrderListToDetailState state = orderListToDetailState;
+        orderListToDetailState = null;
+        return state;
+    }
+
+    public OrderToProductListState getOrderToProductListState() {
+        OrderToProductListState state = orderToProductListState;
+        orderToProductListState = null;
+        return state;
+    }
+
+    public void setOrderToProductListState(OrderToProductListState orderToProductListState) {
+        this.orderToProductListState = orderToProductListState;
     }
 }

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.shoppingcart.app.ProductDetailToListState;
 import es.ulpgc.eite.cleancode.shoppingcart.app.ProductListToDetailState;
 
 public class ProductDetailPresenter implements ProductDetailContract.Presenter {
@@ -26,6 +27,9 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
         if (state == null) {
             state = new ProductDetailState();
         }
+
+
+
 
         ProductListToDetailState savedState = router.getStateFromPreviousScreen();
         if (savedState != null) {
@@ -58,6 +62,9 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
     public void onBackPressed() {
         Log.e(TAG, "onBackPressed()");
 
+        ProductDetailToListState productDetailToListState = new ProductDetailToListState();
+        productDetailToListState.productData = state.data;
+        router.passStateToPreviousScreen(productDetailToListState);
 
     }
 

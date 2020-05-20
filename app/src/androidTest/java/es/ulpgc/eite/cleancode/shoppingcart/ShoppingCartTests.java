@@ -406,7 +406,7 @@ public class ShoppingCartTests { // 20 tests
     // When pulsamos celda de productos en posicion "0" con texto "A"
     robot.pulsamosCeldaDeProductosEnPosicionP1ConTextoP2("0", "A");
     // Then mostramos producto con texto "A" y contenido "2" y valor "1"
-    robot.mostramosProductoConTextoP1YContenidoP2YValorP3("A", "2", "0");
+    robot.mostramosProductoConTextoP1YContenidoP2YValorP3("A", "2", "1");
 
   }
 
@@ -439,7 +439,7 @@ public class ShoppingCartTests { // 20 tests
     // When rotamos pantalla
     robot.rotarPantalla();
     // Then mostramos producto con texto "A" y contenido "2" y valor "1"
-    robot.mostramosProductoConTextoP1YContenidoP2YValorP3("A", "2", "0");
+    robot.mostramosProductoConTextoP1YContenidoP2YValorP3("A", "2", "1");
 
   }
 

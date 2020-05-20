@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.eite.cleancode.shoppingcart.app.OrderListToDetailState;
+import es.ulpgc.eite.cleancode.shoppingcart.app.OrderToProductListState;
+import es.ulpgc.eite.cleancode.shoppingcart.app.ProductToOrderListState;
 import es.ulpgc.eite.cleancode.shoppingcart.data.OrderData;
 
 public class OrderListPresenter implements OrderListContract.Presenter {
@@ -29,7 +32,11 @@ public class OrderListPresenter implements OrderListContract.Presenter {
 
         model.onResetDatastore(); // for testing
 
-        //TODO: falta implementacion
+        ProductToOrderListState savedState = router.getStateFromNextScreen();
+        if (savedState != null) {
+            model.onDataFromNextScreen(savedState.orderData);
+        }
+
     }
 
     @Override
@@ -76,8 +83,11 @@ public class OrderListPresenter implements OrderListContract.Presenter {
         int numberOrders = state.numberOrders;
         OrderData orderData = new OrderData(String.valueOf(numberOrders));
         state.datasource.add(orderData);
-        view.get().onDataUpdated(state);
+        OrderToProductListState orderToProductListState = new OrderToProductListState();
+        orderToProductListState.orderData = orderData;
+        router.passStateToNextScreen(orderToProductListState);
         view.get().navigateToNextScreen();
+        view.get().onDataUpdated(state);
 
     }
 
@@ -85,7 +95,10 @@ public class OrderListPresenter implements OrderListContract.Presenter {
     public void onListTapped(OrderData data) {
         Log.e(TAG, "onListTapped()");
 
-        //TODO: falta implementacion
+        OrderListToDetailState orderListToDetailState = new OrderListToDetailState();
+        orderListToDetailState.data = data;
+        router.passStateToDetailScreen(orderListToDetailState);
+        view.get().navigateToDetailScreen();
     }
 
     @Override

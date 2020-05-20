@@ -1,6 +1,8 @@
 package es.ulpgc.eite.cleancode.shoppingcart.app;
 
-public class ProductDetailToListState {
+import es.ulpgc.eite.cleancode.shoppingcart.data.ProductData;
 
-  //TODO: falta implementacion
+public class ProductDetailToListState {
+    public ProductData productData;
+
 }
