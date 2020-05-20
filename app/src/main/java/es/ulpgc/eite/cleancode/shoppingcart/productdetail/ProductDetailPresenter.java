@@ -29,11 +29,10 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
         }
 
 
-
-
         ProductListToDetailState savedState = router.getStateFromPreviousScreen();
         if (savedState != null) {
             model.onDataFromPreviousScreen(savedState.productData);
+            model.onDataUpdated();
         }
 
 
@@ -51,6 +50,7 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
         Log.e(TAG, "onResume()");
 
         // call the model and update the state
+
         state.data = model.getStoredData();
 
         // update the view
@@ -82,7 +82,7 @@ public class ProductDetailPresenter implements ProductDetailContract.Presenter {
     public void onProductButtonTapped() {
         Log.e(TAG, "onProductButtonTapped()");
 
-        if (state.data.content == 0 && state.data.value == 3) {
+        if (state.data.content == 0) {
             //No se pueden añadir mas productos porque no hay
             view.get().onDataUpdated(state);
         } else {
