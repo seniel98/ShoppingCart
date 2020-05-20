@@ -29,6 +29,8 @@ public class ProductListPresenter implements ProductListContract.Presenter {
         }
 
 
+
+
     }
 
     @Override
@@ -73,9 +75,10 @@ public class ProductListPresenter implements ProductListContract.Presenter {
         Log.e(TAG, "onListTapped()");
 
         ProductListToDetailState productListToDetailState = new ProductListToDetailState();
-
+        productListToDetailState.productData = data;
         router.passStateToNextScreen(productListToDetailState);
-        //TODO: falta implementacion
+        view.get().navigateToNextScreen();
+
     }
 
     @Override
