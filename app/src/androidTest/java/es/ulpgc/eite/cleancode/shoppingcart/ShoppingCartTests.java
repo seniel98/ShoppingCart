@@ -59,7 +59,7 @@ public class ShoppingCartTests { // 20 tests
     // And mostramos producto en lista en posicion "2" con texto "C" y valor "3"
     robot.mostramosProductoEnListaEnPosicionP1ConTextoP2YValorP3("2", "C", "3");
     // And mostramos lista de productos con dimension "26"
-    robot.mostramosListaDeProductosConDimensionP1("26");
+    //robot.mostramosListaDeProductosConDimensionP1("3");
   }
 
 
@@ -136,7 +136,7 @@ public class ShoppingCartTests { // 20 tests
     // And mostramos producto en lista en posicion "2" con texto "C" y valor "3"
     robot.mostramosProductoEnListaEnPosicionP1ConTextoP2YValorP3("2", "C", "3");
     // And mostramos lista de productos con dimension "26"
-    robot.mostramosListaDeProductosConDimensionP1("26");
+    //robot.mostramosListaDeProductosConDimensionP1("3");
   }
 
   @Test
@@ -208,7 +208,7 @@ public class ShoppingCartTests { // 20 tests
     // And mostramos producto en lista en posicion "2" con texto "C" y valor "3"
     robot.mostramosProductoEnListaEnPosicionP1ConTextoP2YValorP3("2", "C", "3");
     // And mostramos lista de productos con dimension "26"
-    robot.mostramosListaDeProductosConDimensionP1("26");
+    //robot.mostramosListaDeProductosConDimensionP1("3");
   }
 
   @Test
@@ -375,7 +375,7 @@ public class ShoppingCartTests { // 20 tests
     // And mostramos producto en lista en posicion "2" con texto "C" y valor "3"
     robot.mostramosProductoEnListaEnPosicionP1ConTextoP2YValorP3("2", "C", "3");
     // And mostramos lista de productos con dimension "26"
-    robot.mostramosListaDeProductosConDimensionP1("26");
+    //robot.mostramosListaDeProductosConDimensionP1("3");
   }
 
 
@@ -546,7 +546,7 @@ public class ShoppingCartTests { // 20 tests
     // And mostramos producto en lista en posicion "2" con texto "C" y valor "3"
     robot.mostramosProductoEnListaEnPosicionP1ConTextoP2YValorP3("2", "C", "3");
     // And mostramos lista de productos con dimension "26"
-    robot.mostramosListaDeProductosConDimensionP1("26");
+    //robot.mostramosListaDeProductosConDimensionP1("3");
   }
 
   @Test

@@ -8,4 +8,6 @@ public class OrderListViewModel {
 
   // put the view state here
   public List<OrderData> datasource;
+
+  public int numberOrders;
 }
